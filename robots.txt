@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://frjbdmg4hp-stack.github.io/sitemap.xml
