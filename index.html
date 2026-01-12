@@ -2,27 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Play Free Online Games | OyunSite</title>
+<title>OyunSite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Play free online games. No download, instant play.">
-<link rel="stylesheet" href="assets/style.css">
+<style>
+body{font-family:Arial;background:#0b0f19;color:#fff;margin:0}
+h1{text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,160px);gap:15px;justify-content:center}
+.card{background:#020617;border-radius:10px;padding:10px;text-align:center}
+a{color:white;text-decoration:none}
+</style>
 </head>
 <body>
 
-<header>
 <h1>🎮 OyunSite</h1>
-<input id="search" placeholder="Search games">
-<nav>
-<a href="index.html">Home</a>
-<a href="category.html?c=action">Action</a>
-<a href="category.html?c=arcade">Arcade</a>
-<a href="favorites.html">⭐ Favorites</a>
-</nav>
-</header>
+<div id="list" class="grid"></div>
 
-<main id="games" class="grid"></main>
+<script>
+fetch("data/games.json")
+.then(r=>r.json())
+.then(games=>{
+ games.forEach(g=>{
+  list.innerHTML+=`
+   <div class="card">
+    <a href="game.html?id=${g.id}">
+     <h3>${g.name}</h3>
+    </a>
+   </div>`;
+ });
+});
+</script>
 
-<script src="assets/app.js"></script>
-<script src="assets/analytics.js"></script>
 </body>
 </html>
