@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Category</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header><a href="index.html">Home</a></header>
+<main id="list" class="grid"></main>
+
+<script>
+const c=new URLSearchParams(location.search).get("c");
+fetch("data/games.json").then(r=>r.json()).then(g=>{
+ g.filter(x=>x.category===c).forEach(o=>{
+  list.innerHTML+=`<a class="card" href="game.html?id=${o.id}">
+  <img src="${o.thumb}"><h3>${o.name}</h3></a>`;
+ });
+});
+</script>
+
+</body>
+</html>

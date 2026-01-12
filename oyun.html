@@ -1,27 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Play Game</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oyun</title>
-<style>
-body{margin:0;background:black}
-iframe{width:100vw;height:100vh;border:0}
-button{position:fixed;top:10px;right:10px;z-index:999}
-.ad{position:fixed;bottom:0;width:100%;background:#020617;color:#aaa;text-align:center}
-</style>
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:type" content="game">
 </head>
 <body>
 
-<button	onclick="document.documentElement.requestFullscreen()">⛶</button>
+<header>
+<a href="index.html">⬅ Back</a>
+<button onclick="addFav()">⭐ Favorite</button>
+</header>
 
-<iframe id="game"></iframe>
+<div class="ad">AD</div>
 
-<div class="ad">ADSENSE OYUN ALTI</div>
+<iframe id="frame" sandbox="allow-scripts allow-same-origin"></iframe>
+
+<div class="ad">AD</div>
+
+<h3>Related Games</h3>
+<div id="related" class="grid"></div>
 
 <script>
-const p=new URLSearchParams(location.search);
-document.getElementById("game").src=p.get("src");
+const id=new URLSearchParams(location.search).get("id");
+fetch("data/games.json").then(r=>r.json()).then(g=>{
+ const game=g.find(x=>x.id===id);
+ document.title=game.name+" | OyunSite";
+ document.getElementById("frame").src=game.url;
+ g.filter(x=>x.category===game.category && x.id!==id)
+ .slice(0,4).forEach(o=>{
+  related.innerHTML+=`<a class="card" href="game.html?id=${o.id}">
+  <img src="${o.thumb}"><h4>${o.name}</h4></a>`;
+ });
+});
+function addFav(){
+ let f=JSON.parse(localStorage.getItem("fav"))||[];
+ if(!f.includes(id)) f.push(id);
+ localStorage.setItem("fav",JSON.stringify(f));
+}
 </script>
 
 </body>

@@ -1,0 +1,1 @@
+function track(e,d){console.log("EVENT",e,d)}

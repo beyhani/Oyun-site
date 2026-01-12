@@ -1,0 +1,33 @@
+[
+ {
+  "id":"reflex",
+  "name":"Reflex Challenge",
+  "category":"action",
+  "thumb":"https://via.placeholder.com/300x200?text=Reflex",
+  "url":"games/action/reflex/index.html"
+ },
+ {
+  "id":"clicker",
+  "name":"Idle Clicker",
+  "category":"arcade",
+  "thumb":"https://via.placeholder.com/300x200?text=Clicker",
+  "url":"games/arcade/clicker/index.html"
+ },
+ {
+  "id":"snake",
+  "name":"Snake Classic",
+  "category":"arcade",
+  "thumb":"https://via.placeholder.com/300x200?text=Snake",
+  "url":"games/arcade/snake/index.html"
+ }
+]
+[
+	
+,
+  {
+    "id":"snake",
+    "name":"Snake Classic",
+    "category":"arcade",
+    "thumb":"https://via.placeholder.com/300x200?text=Snake",
+    "url":"games/arcade/snake/index.html"
+  }
