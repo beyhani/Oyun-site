@@ -19,3 +19,10 @@ addGame(
  "aksiyon",
  false
 );
+addGame(
+ "Yeni Oyun Oyna",
+ "RESİM_LİNKİ",
+ "OYUN_EMBED_LİNKİ",
+ "aksiyon",
+ true
+);
